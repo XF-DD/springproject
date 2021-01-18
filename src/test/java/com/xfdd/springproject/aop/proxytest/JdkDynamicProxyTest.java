@@ -46,6 +46,7 @@ public class JdkDynamicProxyTest {
         // todo 2. Proxy类的getProxyClass静态方法生成一个动态代理类stuProxyClass，该类继承Proxy类，实现 Person.java接口；
         Class<?> proxyClass = Proxy.getProxyClass(Person.class.getClassLoader(), Person.class);
 
+        System.out.println("==========2. 生成stuProxyClass=============");
         System.out.println("package = " + proxyClass.getPackage());
         System.out.println("SimpleName = " + proxyClass.getName());
         System.out.println("CanonicalName = " + proxyClass.getCanonicalName());
@@ -58,6 +59,7 @@ public class JdkDynamicProxyTest {
 
         // todo 4. 通过 构造函数实例 ProxyConstructor 实例化一个代理对象，并将  InvocationHandler 接口实例传递给代理类。
         Person stuProxy = (Person) proxyClassConstructor.newInstance(handler);
+        System.out.println("==========4. stuProxy=============");
         System.out.println("stuProxy isProxy "+Proxy.isProxyClass(stuProxy.getClass()));
         stuProxy.goWorking(stuProxy.getName(),"广州");
 
